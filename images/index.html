@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kook Dain Portfolio</title>
+    <meta
+      name="description"
+      content="Editorial portfolio for Kook Dain with blue, black, and white visual system."
+    />
+    <link rel="stylesheet" href="https://use.typekit.net/bqv8kuc.css" />
+    <link
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f5f8ff;
+        --surface: #ffffff;
+        --text: #080808;
+        --muted: rgba(8, 8, 8, 0.58);
+        --blue: #2252ff;
+        --blue-soft: #dbe5ff;
+        --black: #080808;
+        --font-kr: "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+        --font-en: "norman-variable", "Times New Roman", serif;
+        --font-ui: "Helvetica Neue", "Arial", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        color: var(--text);
+        font-family: var(--font-kr);
+        background:
+          radial-gradient(circle at top right, rgba(34, 82, 255, 0.16), transparent 18%),
+          radial-gradient(circle at top left, rgba(34, 82, 255, 0.08), transparent 22%),
+          linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+        overflow-x: hidden;
+      }
+
+      a,
+      button {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        background: transparent;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      .name-lockup {
+        position: fixed;
+        top: 26px;
+        left: 28px;
+        z-index: 40;
+        font-family: var(--font-en);
+        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        line-height: 0.8;
+        letter-spacing: -0.08em;
+        color: var(--blue);
+        pointer-events: none;
+      }
+
+      .page {
+        width: min(1520px, calc(100% - 72px));
+        margin: 0 auto;
+        padding: 34px 0 160px;
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity 900ms ease, transform 900ms ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .kicker {
+        margin: 0;
+        font-family: var(--font-ui);
+        font-size: 0.8rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 88px;
+        align-items: start;
+        min-height: 92vh;
+        padding-top: 46px;
+      }
+
+      .hero-left {
+        display: grid;
+        gap: 42px;
+      }
+
+      .hero-title {
+        margin: 0;
+        font-family: var(--font-en);
+        font-size: clamp(4.8rem, 11vw, 9rem);
+        line-height: 0.88;
+        letter-spacing: -0.09em;
+        color: var(--blue);
+      }
+
+      .hero-title .black {
+        color: var(--black);
+      }
+
+      .hero-visual {
+        min-height: 560px;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at 50% 22%, rgba(34, 82, 255, 0.22), transparent 25%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.4), rgba(219, 229, 255, 0.32));
+      }
+
+      .hero-visual img {
+        width: min(460px, 82%);
+        height: auto;
+        object-fit: contain;
+      }
+
+      .palette-mini {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        width: fit-content;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .palette-dot {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+      }
+
+      .palette-dot-light {
+        background: #ffffff;
+        box-shadow: inset 0 0 0 1px rgba(8, 8, 8, 0.08);
+      }
+
+      .hero-right {
+        display: grid;
+        gap: 46px;
+        padding-top: 12px;
+      }
+
+      .intro-block {
+        display: grid;
+        gap: 18px;
+      }
+
+      .intro-block h2,
+      .section-head h2 {
+        margin: 0;
+        font-family: var(--font-en);
+        font-size: clamp(2.9rem, 6vw, 5.6rem);
+        line-height: 0.92;
+        letter-spacing: -0.07em;
+      }
+
+      .intro-copy,
+      .section-head p,
+      .project-info p,
+      .detail-copy p,
+      .resume-copy p,
+      .archive-card p {
+        margin: 0;
+        line-height: 2.08;
+        color: rgba(8, 8, 8, 0.78);
+      }
+
+      .profile-rows {
+        display: grid;
+        gap: 16px;
+      }
+
+      .profile-row {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .profile-row strong,
+      .detail-label,
+      .detail-meta strong,
+      .resume-section-title,
+      .resume-skill-label {
+        font-family: var(--font-ui);
+        font-size: 0.8rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      .profile-row span {
+        line-height: 1.95;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+      }
+
+      .hero-button {
+        padding: 12px 18px;
+        border: 0;
+        color: var(--text);
+        cursor: pointer;
+        transition: color 220ms ease, transform 220ms ease;
+      }
+
+      .hero-button.primary {
+        color: var(--blue);
+        font-weight: 700;
+      }
+
+      .hero-button:hover {
+        transform: translateY(-2px);
+      }
+
+      .interactive-note {
+        display: grid;
+        gap: 14px;
+      }
+
+      .interactive-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .interactive-buttons button {
+        border: 0;
+        padding: 10px 0;
+        color: var(--muted);
+        cursor: pointer;
+        transition: color 220ms ease, transform 220ms ease;
+      }
+
+      .interactive-buttons button:hover,
+      .interactive-buttons button.is-active {
+        color: var(--blue);
+        transform: translateY(-2px);
+      }
+
+      .type-nav {
+        margin-top: 110px;
+        padding: 70px 0 42px;
+      }
+
+      .type-nav-stack {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .type-link {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 18px;
+        text-decoration: none;
+        font-family: var(--font-en);
+        font-size: clamp(3.3rem, 8vw, 6.6rem);
+        line-height: 0.9;
+        letter-spacing: -0.065em;
+        color: rgba(34, 82, 255, 0.18);
+        transition: color 240ms ease, transform 240ms ease;
+      }
+
+      .type-link small {
+        font-family: var(--font-ui);
+        font-size: 0.16em;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: rgba(8, 8, 8, 0.4);
+      }
+
+      .type-link:hover,
+      .type-link:focus-visible {
+        color: var(--blue);
+        transform: translateX(10px);
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        align-items: end;
+        margin-bottom: 38px;
+      }
+
+      .section-head p {
+        max-width: 34rem;
+      }
+
+      .projects-section {
+        margin-top: 118px;
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 54px 44px;
+      }
+
+      .project-card {
+        padding: 0;
+        border: 0;
+        cursor: pointer;
+        text-align: left;
+        transition: transform 240ms ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-6px);
+      }
+
+      .project-image {
+        position: relative;
+        min-height: 420px;
+        display: grid;
+        place-items: center;
+        background:
+          radial-gradient(circle at top, rgba(34, 82, 255, 0.18), transparent 22%),
+          transparent;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 420ms ease, filter 420ms ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.03);
+        filter: saturate(1.08);
+      }
+
+      .project-index {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        color: var(--blue);
+      }
+
+      .project-info {
+        display: grid;
+        gap: 12px;
+        padding-top: 20px;
+      }
+
+      .project-meta {
+        margin: 0;
+        font-family: var(--font-ui);
+        font-size: 0.76rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .project-info h3 {
+        margin: 0;
+        font-size: 1.08rem;
+        line-height: 1.78;
+        transition: color 220ms ease;
+      }
+
+      .project-card:hover .project-info h3 {
+        color: var(--blue);
+      }
+
+      .archive-section {
+        margin-top: 190px;
+      }
+
+      .archive-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 30px;
+      }
+
+      .archive-card {
+        padding: 12px 0 20px;
+        cursor: pointer;
+        transition: transform 240ms ease;
+      }
+
+      .archive-card:hover,
+      .archive-card.is-active {
+        transform: translateY(-6px);
+      }
+
+      .archive-meta {
+        margin: 0 0 12px;
+        font-family: var(--font-ui);
+        font-size: 0.78rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+
+      .archive-card h3 {
+        margin: 0 0 12px;
+        font-size: 1.06rem;
+        line-height: 1.76;
+        transition: color 220ms ease;
+      }
+
+      .archive-card:hover h3,
+      .archive-card.is-active h3 {
+        color: var(--blue);
+      }
+
+      .archive-card::after {
+        content: "";
+        display: block;
+        width: 0;
+        height: 2px;
+        margin-top: 18px;
+        background: var(--blue);
+        transition: width 240ms ease;
+      }
+
+      .archive-card:hover::after,
+      .archive-card.is-active::after {
+        width: 100%;
+      }
+
+      .archive-detail {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 280ms ease, margin-top 280ms ease, opacity 280ms ease;
+      }
+
+      .archive-card.is-active .archive-detail {
+        max-height: 180px;
+        margin-top: 14px;
+        opacity: 1;
+      }
+
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        display: none;
+        place-items: center;
+        padding: 24px;
+        z-index: 50;
+      }
+
+      .modal-overlay.is-open {
+        display: grid;
+      }
+
+      .modal-backdrop {
+        position: absolute;
+        inset: 0;
+        border: 0;
+        background: rgba(8, 8, 8, 0.58);
+      }
+
+      .detail-card {
+        position: relative;
+        width: min(1200px, 100%);
+        max-height: calc(100vh - 48px);
+        overflow: auto;
+        background:
+          radial-gradient(circle at top right, rgba(34, 82, 255, 0.14), transparent 18%),
+          #ffffff;
+      }
+
+      .modal-close {
+        position: sticky;
+        top: 0;
+        margin-left: auto;
+        display: block;
+        padding: 16px 18px;
+        border: 0;
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--blue);
+        cursor: pointer;
+        z-index: 3;
+      }
+
+      .detail-layout {
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: 42px;
+        padding: 26px 28px 36px;
+      }
+
+      .detail-image {
+        min-height: 620px;
+        background:
+          radial-gradient(circle at center, rgba(34, 82, 255, 0.14), transparent 36%),
+          #f3f7ff;
+      }
+
+      .detail-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .detail-copy {
+        display: grid;
+        gap: 26px;
+        align-content: start;
+      }
+
+      .detail-tag {
+        display: inline-flex;
+        width: fit-content;
+        padding: 8px 12px;
+        background: var(--blue);
+        color: #ffffff;
+        font-family: var(--font-ui);
+        font-size: 0.76rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .detail-title {
+        margin: 0;
+        font-family: var(--font-en);
+        font-size: clamp(2.2rem, 4vw, 3.5rem);
+        line-height: 1.22;
+        letter-spacing: -0.045em;
+      }
+
+      .detail-meta {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px 22px;
+      }
+
+      .detail-meta div {
+        display: grid;
+        gap: 8px;
+      }
+
+      .detail-copy p {
+        line-height: 2.36;
+      }
+
+      .resume-card {
+        position: relative;
+        width: min(900px, 100%);
+        max-height: calc(100vh - 48px);
+        overflow: auto;
+        background:
+          radial-gradient(circle at top right, rgba(34, 82, 255, 0.12), transparent 18%),
+          linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+        padding: 30px 34px 40px;
+      }
+
+      .resume-layout {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 36px;
+        align-items: start;
+      }
+
+      .resume-title {
+        margin: 0;
+        font-family: var(--font-en);
+        font-size: clamp(3rem, 6vw, 5rem);
+        line-height: 0.9;
+        letter-spacing: -0.06em;
+        color: var(--blue);
+      }
+
+      .resume-sub {
+        margin: 8px 0 0;
+        font-family: var(--font-en);
+        font-size: 2.1rem;
+        line-height: 0.95;
+        letter-spacing: -0.05em;
+      }
+
+      .resume-photo {
+        width: min(260px, 100%);
+        margin-left: auto;
+        transform: rotate(4deg);
+        background: #ffffff;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.14);
+        padding: 10px 10px 22px;
+      }
+
+      .resume-photo img {
+        width: 100%;
+        aspect-ratio: 0.78;
+        object-fit: cover;
+      }
+
+      .resume-copy {
+        display: grid;
+        gap: 18px;
+        margin-top: 26px;
+      }
+
+      .resume-grid {
+        display: grid;
+        gap: 26px;
+      }
+
+      .resume-section {
+        display: grid;
+        gap: 14px;
+      }
+
+      .resume-items {
+        display: grid;
+        gap: 14px;
+      }
+
+      .resume-item {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 18px;
+      }
+
+      .resume-item strong {
+        font-size: 0.9rem;
+      }
+
+      .resume-item span,
+      .resume-item p {
+        line-height: 1.95;
+        margin: 0;
+      }
+
+      .resume-skill-list {
+        display: grid;
+        gap: 14px;
+      }
+
+      .resume-skill-row {
+        display: grid;
+        grid-template-columns: 110px minmax(0, 1fr);
+        gap: 18px;
+        align-items: center;
+      }
+
+      .skill-dots {
+        display: flex;
+        gap: 8px;
+      }
+
+      .skill-dots span {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(34, 82, 255, 0.18);
+      }
+
+      .skill-dots span.is-filled {
+        background: var(--blue);
+      }
+
+      .footer {
+        margin-top: 140px;
+        padding-top: 28px;
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 1180px) {
+        .hero,
+        .detail-layout,
+        .resume-layout {
+          grid-template-columns: 1fr;
+        }
+
+        .project-grid,
+        .archive-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .resume-photo {
+          margin-left: 0;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .page {
+          width: min(100%, calc(100% - 28px));
+        }
+
+        .name-lockup {
+          top: 18px;
+          left: 18px;
+          font-size: 2rem;
+        }
+
+        .profile-row,
+        .resume-item,
+        .resume-skill-row,
+        .detail-meta {
+          grid-template-columns: 1fr;
+        }
+
+        .section-head,
+        .footer {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        .type-link {
+          font-size: clamp(2.1rem, 11vw, 3.4rem);
+        }
+
+        .type-link small {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="name-lockup">Kook<br />Dain</div>
+
+    <div class="page">
+      <section class="hero reveal">
+        <div class="hero-left">
+          <div>
+            <p class="kicker">Graphic Designer / Portfolio / 2026</p>
+            <h1 class="hero-title">
+              Kook<br />
+              <span class="black">Dain</span>
+            </h1>
+          </div>
+
+          <div class="hero-visual">
+            <img src="./Profile 1.png" alt="Kook Dain profile" />
+          </div>
+
+          <div class="palette-mini">
+            <div class="palette-dot" style="background:#2252ff"></div>
+            <div class="palette-dot" style="background:#080808"></div>
+            <div class="palette-dot palette-dot-light"></div>
+            <span>Blue / Black / White</span>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <section class="intro-block">
+            <p class="kicker">About Me</p>
+            <h2>저는 이런 디자이너입니다.</h2>
+            <p class="intro-copy">
+              사용자의 일상에 자연스럽게 스며드는 화면을 만들고 싶습니다. 타이포그래피, 여백,
+              시선의 흐름을 중요하게 생각하며 프로젝트마다 구조와 분위기를 함께 설계하는 것을
+              좋아합니다. 화려함보다 오래 읽히는 화면, 복잡함보다 명확한 연결감을 목표로 작업합니다.
+            </p>
+          </section>
+
+          <section class="intro-block">
+            <p class="kicker">Profile Detail</p>
+            <div class="profile-rows">
+              <div class="profile-row">
+                <strong>Name</strong>
+                <span>Kook Dain</span>
+              </div>
+              <div class="profile-row">
+                <strong>Identity</strong>
+                <span>다정한 에너지와 구조적인 사고를 함께 가진 UX/UI 디자이너</span>
+              </div>
+              <div class="profile-row">
+                <strong>Direction</strong>
+                <span>브랜딩, UX/UI, 편집 감각, 타이포 중심 레이아웃을 연결하는 작업</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="intro-block">
+            <p class="kicker">Interactive Note</p>
+            <div class="interactive-note">
+              <p id="skillOutput" class="intro-copy">
+                아래 키워드를 누르면 자기소개 문장이 바뀝니다. 프로젝트 성격에 따라 구조와 분위기를 조정하는 디자이너라는 점을 보여주고 싶었습니다.
+              </p>
+              <div class="interactive-buttons">
+                <button type="button" data-copy="기획 단계에서 문제의 핵심을 정리하고, 사용자가 자연스럽게 따라갈 수 있는 흐름을 먼저 설계합니다.">Planning</button>
+                <button type="button" data-copy="브랜드의 인상과 화면의 감정을 함께 설계하며, 컬러와 타이포의 리듬을 중요하게 생각합니다.">Branding</button>
+                <button type="button" data-copy="UI 구조 안에서 정보가 필요한 순간에 보이도록 위계와 간격, 인터랙션을 정리합니다.">UI Structure</button>
+                <button type="button" data-copy="텍스트와 이미지가 경쟁하지 않고 한 화면 안에서 균형 있게 읽히도록 편집 감각을 조절합니다.">Editorial</button>
+              </div>
+            </div>
+          </section>
+
+          <div class="hero-actions">
+            <button type="button" class="hero-button primary" id="openResume">프로필 상세 페이지 가기</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="type-nav reveal">
+        <div class="type-nav-stack">
+          <a class="type-link" href="#projects">Project Archive <small>selected work</small></a>
+          <a class="type-link" href="#reading">Reading Archive <small>book notes</small></a>
+          <a class="type-link" href="#club">Club Activities <small>creative work</small></a>
+          <a class="type-link" href="#awards">Awards & Career <small>recognition</small></a>
+        </div>
+      </section>
+
+      <section class="projects-section reveal" id="projects">
+        <div class="section-head">
+          <div>
+            <p class="kicker">Selected Work / 08 Projects</p>
+            <h2>Project Archive</h2>
+          </div>
+        </div>
+
+        <div class="project-grid">
+          <button class="project-card" data-category="Media Contents" data-title="미디어콘텐츠 킷캣 광고 영상 콘텐츠 제작" data-period="2025.03 - 2025.06" data-role="Video Planning / Visual Editing" data-tools="Premiere Pro / Photoshop" data-image="./kitkat.png" data-description="킷캣 브랜드 톤에 맞춘 광고 영상 콘텐츠를 기획하고 편집한 프로젝트입니다. 짧은 시간 안에 제품 인지와 메시지 전달이 선명하게 전달되도록 컷 리듬과 시각 흐름을 조정했습니다." data-outcome="브랜드 무드와 컷 편집, 텍스트 오버레이를 조합해 기억에 남는 광고형 콘텐츠 흐름을 만들었습니다.">
+            <div class="project-image"><span class="project-index">01</span><img src="./kitkat.png" alt="킷캣 광고 영상 콘텐츠 제작" /></div>
+            <div class="project-info"><p class="project-meta">media contents</p><h3>미디어콘텐츠 킷캣 광고 영상 콘텐츠 제작</h3><p>브랜드 톤과 리듬감을 중심으로 만든 광고형 영상 프로젝트.</p></div>
+          </button>
+
+          <button class="project-card" data-category="App Redesign" data-title="애플리케이션 탐구하기, 화해 앱 리디자인 프로젝트" data-period="2025.09 - 2025.11" data-role="UX Research / UI Redesign" data-tools="Figma / User Flow" data-image="./hawa.png" data-description="화해 앱의 주요 탐색 구조와 홈 화면 시선 흐름을 분석한 뒤, 핵심 구매 동선과 정보 밀도를 다시 설계한 리디자인 프로젝트입니다." data-outcome="사용자가 더 빠르게 핵심 기능에 도달할 수 있도록 탐색과 리스트 구조를 명료하게 재정리했습니다.">
+            <div class="project-image"><span class="project-index">02</span><img src="./hawa.png" alt="화해 앱 리디자인 프로젝트" /></div>
+            <div class="project-info"><p class="project-meta">app redesign</p><h3>애플리케이션 탐구하기, 화해 앱 리디자인 프로젝트</h3><p>기존 서비스 흐름을 분석하고 다시 구조화한 UI 리디자인 작업.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Research Portfolio" data-title="요소 리서치 볼륨버튼 제작 포트폴리오" data-period="2025.06 - 2025.07" data-role="Element Research / Editorial Layout" data-tools="Figma / Illustrator" data-image="./rere.png" data-description="작은 UI 요소인 볼륨 버튼을 중심으로 조형성과 사용감, 시각적 언어를 깊게 분석해 정리한 리서치형 포트폴리오입니다." data-outcome="세부 요소도 사용자 인지에 직접 연결된다는 점을 편집형 레이아웃으로 설득력 있게 정리했습니다.">
+            <div class="project-image"><span class="project-index">03</span><img src="./rere.png" alt="볼륨버튼 제작 포트폴리오" /></div>
+            <div class="project-info"><p class="project-meta">research portfolio</p><h3>요소 리서치 볼륨버튼 제작 포트폴리오</h3><p>단일 UI 요소를 깊게 분석하고 편집 구조로 풀어낸 작업.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Award Project" data-title="Design Award Figma Jazz 대상, 1학년 부문" data-period="2025" data-role="UI Concept / Visual Storytelling" data-tools="Figma" data-image="./fugna.png" data-description="제한된 시간 안에 콘셉트와 완성도를 함께 설득해야 했던 수상 프로젝트입니다. 시각적 인상과 사용 흐름을 균형 있게 배치했습니다." data-outcome="아이디어 구조와 화면 완성도 모두에서 좋은 평가를 받으며 1학년 부문 대상을 수상했습니다.">
+            <div class="project-image"><span class="project-index">04</span><img src="./fugna.png" alt="Design Award Figma Jazz 대상" /></div>
+            <div class="project-info"><p class="project-meta">award project</p><h3>Design Award Figma Jazz 대상, 1학년 부문</h3><p>콘셉트와 완성도를 함께 설득한 수상 프로젝트.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Curation Service" data-title="장소를 선택하는 순간, 기억이 꽃피는 경험 중심 큐레이션 서비스 기획, BI 포스터 제작" data-period="2026.01 - 2026.02" data-role="Service Planning / Branding" data-tools="Figma / Branding" data-image="./pickpot.png" data-description="장소 선택의 순간을 감정적인 경험으로 확장한 큐레이션 서비스 기획 프로젝트입니다. 서비스 구조 설계와 BI 포스터까지 함께 연결했습니다." data-outcome="서비스 메시지와 브랜드 비주얼을 하나의 경험으로 묶어 기획과 비주얼이 분리되지 않는 방향을 제안했습니다.">
+            <div class="project-image"><span class="project-index">05</span><img src="./pickpot.png" alt="경험 중심 큐레이션 서비스 기획" /></div>
+            <div class="project-info"><p class="project-meta">curation service</p><h3>장소를 선택하는 순간, 기억이 꽃피는 경험 중심 큐레이션 서비스 기획</h3><p>서비스 기획과 BI를 함께 풀어낸 경험 중심 프로젝트.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Design System" data-title="서비스 TVING 디자인 시스템 피그마 제작" data-period="2025.03 - 2025.06" data-role="Design System / UI Architecture" data-tools="Figma / Component Library" data-image="./defign.png" data-description="TVING 서비스의 브랜드 요소를 바탕으로 컬러, 아이콘, 네비게이션, 컴포넌트 구조를 정리한 디자인 시스템 프로젝트입니다." data-outcome="서비스 전반에 일관된 UI 원칙을 적용할 수 있도록 컴포넌트 기반 규칙과 시각 구조를 체계화했습니다.">
+            <div class="project-image"><span class="project-index">06</span><img src="./defign.png" alt="TVING 디자인 시스템 피그마 제작" /></div>
+            <div class="project-info"><p class="project-meta">design system</p><h3>서비스 TVING 디자인 시스템 피그마 제작</h3><p>브랜드 규칙을 구조적으로 묶어낸 시스템 설계 프로젝트.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Service UX" data-title="국다인 셰프 매칭 서비스 UX 기획" data-period="2025.11 - 2026.01" data-role="Service UX / Mobile UI" data-tools="Figma / UX Strategy" data-image="./rere02.png" data-description="셰프와 사용자를 연결하는 모바일 서비스의 핵심 흐름을 기획한 프로젝트입니다. 검색, 탐색, 프로필, 지역 기반 구조를 중심으로 정리했습니다." data-outcome="탐색성과 신뢰도를 높이는 정보 구조와 모바일 시선 흐름을 함께 제안했습니다.">
+            <div class="project-image"><span class="project-index">07</span><img src="./rere02.png" alt="국다인 셰프 매칭 서비스 UX 기획" /></div>
+            <div class="project-info"><p class="project-meta">service ux</p><h3>국다인 셰프 매칭 서비스 UX 기획</h3><p>탐색과 프로필 구조를 정리한 모바일 서비스 UX 설계 프로젝트.</p></div>
+          </button>
+
+          <button class="project-card" data-category="Portfolio Identity" data-title="포트폴리오 아이덴티티 및 타이포그래피 레이아웃 설계" data-period="2026" data-role="Branding / Editorial Layout" data-tools="HTML / CSS / Typography" data-image="./Profile 1.png" data-description="현재 포트폴리오 웹사이트를 위한 자기 아이덴티티 정리와 타이포그래피 기반 레이아웃 실험 프로젝트입니다." data-outcome="단순 나열형 포트폴리오가 아니라 브랜딩 감도가 느껴지는 자기소개 구조를 완성했습니다.">
+            <div class="project-image"><span class="project-index">08</span><img src="./Profile 1.png" alt="포트폴리오 아이덴티티 및 타이포그래피 레이아웃 설계" /></div>
+            <div class="project-info"><p class="project-meta">portfolio identity</p><h3>포트폴리오 아이덴티티 및 타이포그래피 레이아웃 설계</h3><p>자기소개와 프로젝트 아카이브를 하나의 시각 언어로 묶은 작업.</p></div>
+          </button>
+        </div>
+      </section>
+
+      <section class="archive-section reveal" id="reading">
+        <div class="section-head">
+          <div><p class="kicker">Reading Archive</p><h2>Reading Notes</h2></div>
+          <p>UX와 서비스 디자인 관련 독서를 통해 얻은 핵심 인사이트를 짧고 명확한 카드 구조로 정리했습니다.</p>
+        </div>
+        <div class="archive-grid">
+          <article class="archive-card" tabindex="0"><p class="archive-meta">UX Reading</p><h3>사용자를 생각하게 하지마</h3><p>직관적인 인터페이스, 인지 부하 최소화, 핵심 행동의 명확성에 관한 원칙을 정리했습니다.</p><div class="archive-detail"><p>클릭하면 상세 메모가 펼쳐지도록 구성했습니다. 사용자의 사고 과정을 줄이는 설계 원칙을 실제 프로젝트 흐름과 연결해 해석했습니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">Service Design</p><h3>서비스 디자인의 역사와 테스트</h3><p>테스트 기반 개선 과정과 서비스 맥락 안에서 디자인이 작동하는 방식에 주목했습니다.</p><div class="archive-detail"><p>리서치 이후 검증과 개선이 어떻게 순환하는지 이해하며, 사용자 경험을 더 긴 흐름에서 바라보는 관점을 정리했습니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">UI Principle</p><h3>UIUX의 10가지 심리학 법칙</h3><p>사용자 행동을 예측하고 더 자연스러운 인터페이스를 설계하기 위한 심리학 원리를 학습했습니다.</p><div class="archive-detail"><p>화면 설계에서 익숙함, 주목도, 선택의 부담 같은 요소가 어떤 식으로 작동하는지 카드 형태로 다시 정리했습니다.</p></div></article>
+        </div>
+      </section>
+
+      <section class="archive-section reveal" id="club">
+        <div class="section-head">
+          <div><p class="kicker">Club Activities</p><h2>Creative Involvement</h2></div>
+          <p>비주얼 커뮤니케이션과 실제 제작 경험을 중심으로, 동아리 안에서 진행했던 디자인 활동을 정리했습니다.</p>
+        </div>
+        <div class="archive-grid">
+          <article class="archive-card" tabindex="0"><p class="archive-meta">Visual Communication</p><h3>동아리 홍보물 제작</h3><p>포스터, 카드뉴스, 소셜 콘텐츠를 제작하며 톤앤매너와 메시지 전달 구조를 정리했습니다.</p><div class="archive-detail"><p>온라인 홍보물에서 제목의 위계와 이미지 배치가 메시지 도달률에 큰 영향을 준다는 점을 실무적으로 익혔습니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">Photography</p><h3>직접 촬영한 사진 활용 포스터 디자인</h3><p>촬영부터 편집까지 연결해 이미지와 타이포가 조화롭게 보이도록 시각 흐름을 만들었습니다.</p><div class="archive-detail"><p>직접 확보한 이미지 자산을 중심으로 편집형 포스터를 제작하며, 원본 이미지의 분위기를 해치지 않는 타이포 배치를 실험했습니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">Field Experience</p><h3>촬영 및 현장 참여형 콘텐츠 보조</h3><p>현장성 있는 작업 과정 속에서 기록, 편집, 전달의 리듬을 이해하고 실무 감각을 키웠습니다.</p><div class="archive-detail"><p>현장 기록물의 중요도를 빠르게 판단하고, 후속 편집에 필요한 컷을 구조적으로 수집하는 방법을 익혔습니다.</p></div></article>
+        </div>
+      </section>
+
+      <section class="archive-section reveal" id="awards">
+        <div class="section-head">
+          <div><p class="kicker">Awards & Career</p><h2>Awards & Recognition</h2></div>
+          <p>수상과 프로젝트 성과를 한 섹션에 모아, 문제 정의와 결과물 완성도 양쪽에서 검증된 경험을 보여줍니다.</p>
+        </div>
+        <div class="archive-grid">
+          <article class="archive-card" tabindex="0"><p class="archive-meta">2025</p><h3>Design Award Figma Jazz 대상</h3><p>1학년 부문 대상 수상. 콘셉트 기획과 화면 완성도를 동시에 설득한 프로젝트로 좋은 평가를 받았습니다.</p><div class="archive-detail"><p>아이디어 자체의 신선함뿐 아니라 결과물의 시각적 완성도와 정리 방식까지 함께 인정받은 대표 경험입니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">2025</p><h3>포트폴리오 경진대회 우수상</h3><p>타이포그래피 중심 자기 브랜딩과 경험 구조화 측면에서 강점을 인정받았습니다.</p><div class="archive-detail"><p>단순 결과물 나열이 아니라 포트폴리오 전체의 리듬과 브랜딩 관점이 설득력 있게 전달되었다는 점에서 의미가 있습니다.</p></div></article>
+          <article class="archive-card" tabindex="0"><p class="archive-meta">Career</p><h3>교과 및 개인 프로젝트 다수 수행</h3><p>영상, 앱 리디자인, 요소 리서치, 큐레이션 서비스, 디자인 시스템 등 다양한 포맷의 작업을 수행했습니다.</p><div class="archive-detail"><p>하나의 스타일에 머물지 않고 프로젝트 성격에 따라 구조, 타이포, 시각 무드를 조정하는 경험을 쌓았습니다.</p></div></article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>Kook Dain Portfolio</span>
+        <span>Blue / Black / White editorial grid</span>
+      </footer>
+    </div>
+
+    <div class="modal-overlay" id="projectModal" aria-hidden="true">
+      <button class="modal-backdrop" id="projectBackdrop" aria-label="close project detail"></button>
+      <article class="detail-card">
+        <button class="modal-close" id="projectClose">Close</button>
+        <div class="detail-layout">
+          <div class="detail-image">
+            <img id="detailImage" src="./Profile 1.png" alt="project image" />
+          </div>
+          <div class="detail-copy">
+            <span class="detail-tag" id="detailCategory">Project</span>
+            <h2 class="detail-title" id="detailTitle">Project Title</h2>
+            <div class="detail-meta">
+              <div><strong>Period</strong><span id="detailPeriod"></span></div>
+              <div><strong>Role</strong><span id="detailRole"></span></div>
+              <div><strong>Tools</strong><span id="detailTools"></span></div>
+              <div><strong>Format</strong><span>Popup card detail</span></div>
+            </div>
+            <div><span class="detail-label">Overview</span><p id="detailDescription"></p></div>
+            <div><span class="detail-label">Outcome</span><p id="detailOutcome"></p></div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="modal-overlay" id="resumeModal" aria-hidden="true">
+      <button class="modal-backdrop" id="resumeBackdrop" aria-label="close resume detail"></button>
+      <article class="resume-card">
+        <button class="modal-close" id="resumeClose">Close</button>
+        <div class="resume-layout">
+          <div>
+            <p class="kicker">Profile Resume</p>
+            <h2 class="resume-title">Kook Dain</h2>
+            <p class="resume-sub">Resume</p>
+            <div class="resume-copy">
+              <p>저는 사용자의 일상에 자연스럽게 스며드는 화면을 설계하는 디자이너입니다. 구조적인 레이아웃과 타이포그래피, 그리고 브랜드 감정이 함께 살아 있는 경험을 만드는 것을 좋아합니다.</p>
+              <p>기획부터 브랜딩, UX/UI, 편집 감각까지 연결해 프로젝트마다 가장 어울리는 흐름과 무드를 정리합니다.</p>
+            </div>
+          </div>
+          <div class="resume-photo">
+            <img src="./Profile 1.png" alt="Kook Dain resume profile" />
+          </div>
+        </div>
+
+        <div class="resume-grid">
+          <section class="resume-section">
+            <span class="resume-section-title">Experience</span>
+            <div class="resume-items">
+              <div class="resume-item">
+                <strong>Strength</strong>
+                <p>다정한 에너지, 구조적인 사고, 타이포 중심 화면 설계, 브랜드와 경험을 함께 보는 시선.</p>
+              </div>
+              <div class="resume-item">
+                <strong>Focus</strong>
+                <p>브랜딩, UX/UI, 디자인 시스템, 모바일 서비스 기획, 편집 감각이 느껴지는 레이아웃 구성.</p>
+              </div>
+              <div class="resume-item">
+                <strong>Career</strong>
+                <p>영상 콘텐츠, 앱 리디자인, 디자인 시스템, 큐레이션 서비스, 리서치형 포트폴리오 등 다양한 포맷의 프로젝트 수행.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <span class="resume-section-title">Skills</span>
+            <div class="resume-skill-list">
+              <div class="resume-skill-row"><span class="resume-skill-label">Photoshop</span><div class="skill-dots"><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span></div></div>
+              <div class="resume-skill-row"><span class="resume-skill-label">Illustrator</span><div class="skill-dots"><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span></span></div></div>
+              <div class="resume-skill-row"><span class="resume-skill-label">Figma</span><div class="skill-dots"><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span></div></div>
+              <div class="resume-skill-row"><span class="resume-skill-label">3D</span><div class="skill-dots"><span class="is-filled"></span><span class="is-filled"></span><span class="is-filled"></span><span></span><span></span></div></div>
+            </div>
+          </section>
+
+          <section class="resume-section">
+            <span class="resume-section-title">Education & Notes</span>
+            <div class="resume-items">
+              <div class="resume-item"><strong>Education</strong><p>디자인 관련 전공 기반으로 시각 언어와 사용자 경험 설계 과정을 함께 학습하고 있습니다.</p></div>
+              <div class="resume-item"><strong>Self Intro</strong><p>저는 작은 요소의 리듬까지 중요하게 생각하는 사람입니다. 사용자가 자연스럽게 읽고 이해할 수 있는 화면을 만드는 데 집중합니다.</p></div>
+            </div>
+          </section>
+        </div>
+      </article>
+    </div>
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("is-visible");
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+      const skillOutput = document.getElementById("skillOutput");
+      document.querySelectorAll(".interactive-buttons button").forEach((button) => {
+        button.addEventListener("click", () => {
+          document
+            .querySelectorAll(".interactive-buttons button")
+            .forEach((item) => item.classList.remove("is-active"));
+          button.classList.add("is-active");
+          skillOutput.textContent = button.dataset.copy;
+        });
+      });
+
+      document.querySelectorAll(".archive-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          card.classList.toggle("is-active");
+        });
+
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            card.classList.toggle("is-active");
+          }
+        });
+      });
+
+      const projectModal = document.getElementById("projectModal");
+      const projectBackdrop = document.getElementById("projectBackdrop");
+      const projectClose = document.getElementById("projectClose");
+      const detailCategory = document.getElementById("detailCategory");
+      const detailTitle = document.getElementById("detailTitle");
+      const detailPeriod = document.getElementById("detailPeriod");
+      const detailRole = document.getElementById("detailRole");
+      const detailTools = document.getElementById("detailTools");
+      const detailImage = document.getElementById("detailImage");
+      const detailDescription = document.getElementById("detailDescription");
+      const detailOutcome = document.getElementById("detailOutcome");
+
+      function openProject(card) {
+        detailCategory.textContent = card.dataset.category;
+        detailTitle.textContent = card.dataset.title;
+        detailPeriod.textContent = card.dataset.period;
+        detailRole.textContent = card.dataset.role;
+        detailTools.textContent = card.dataset.tools;
+        detailImage.src = card.dataset.image;
+        detailImage.alt = card.dataset.title;
+        detailDescription.textContent = card.dataset.description;
+        detailOutcome.textContent = card.dataset.outcome;
+        projectModal.classList.add("is-open");
+        projectModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeProject() {
+        projectModal.classList.remove("is-open");
+        projectModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.addEventListener("click", () => openProject(card));
+      });
+
+      projectBackdrop.addEventListener("click", closeProject);
+      projectClose.addEventListener("click", closeProject);
+
+      const resumeModal = document.getElementById("resumeModal");
+      const resumeBackdrop = document.getElementById("resumeBackdrop");
+      const resumeClose = document.getElementById("resumeClose");
+      const openResume = document.getElementById("openResume");
+
+      function showResume() {
+        resumeModal.classList.add("is-open");
+        resumeModal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function hideResume() {
+        resumeModal.classList.remove("is-open");
+        resumeModal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      openResume.addEventListener("click", showResume);
+      resumeBackdrop.addEventListener("click", hideResume);
+      resumeClose.addEventListener("click", hideResume);
+
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          if (projectModal.classList.contains("is-open")) closeProject();
+          if (resumeModal.classList.contains("is-open")) hideResume();
+        }
+      });
+    </script>
+  </body>
+</html>
